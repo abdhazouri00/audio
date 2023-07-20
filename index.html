@@ -61,7 +61,7 @@
 
   <div class="row">
     <audio id="audioPlayer" class="d-none" controls>
-        <source src="file_example_MP3_700KB.mp3" type="audio/mpeg" >
+        <source src="tomp3.cc - Learn English Conversation Weather and Small Talk 30 SECONDS Subtitles_320kbps.mp3" type="audio/mpeg" >
         Your browser does not support the audio element.
       </audio>
       <button id="playButton" class="btn btn-primary">Play</button>
@@ -91,7 +91,25 @@
         // });
     
         // Disable the pause button initially
-        pauseButton.disabled = true;
+        // pauseButton.disabled = true;
+
+        let audioElement = document.getElementById("audioPlayer");
+        let isAudioPlaying = false;
+
+        audioElement.addEventListener("play", function() {
+          isAudioPlaying = true;
+        });
+
+        audioElement.addEventListener("pause", function() {
+          isAudioPlaying = false;
+        });
+
+        window.addEventListener("beforeunload", function(event) {
+          if (isAudioPlaying) {
+            // Provide a custom confirmation message
+            event.returnValue = "Are you sure you want to leave the page? The audio is still playing.";
+          }
+        });
       </script>
 
 
