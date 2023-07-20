@@ -21,13 +21,8 @@
       /* padding: 5px 10px; */
       font-size: 16px;
       cursor: pointer;
-    }
-
-    /* Optionally add some custom styling to distinguish play and pause buttons */
-    #playButton {
-      /* margin-top: 40vh; */
-    }
-
+    } 
+    
     #pauseButton {
       background-color: rgb(243, 16, 0);
       color: white;
@@ -49,70 +44,25 @@
 
 
   <div class="container d-flex justify-content-center">
-    
-    
     <div class="col-3">
-
       <div class="row">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" fill="currentColor" class="bi bi-soundwave" viewBox="0 0 16 16">
-      <path fill-rule="evenodd" d="M8.5 2a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-1 0v-11a.5.5 0 0 1 .5-.5zm-2 2a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zm4 0a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zm-6 1.5A.5.5 0 0 1 5 6v4a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm8 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm-10 1A.5.5 0 0 1 3 7v2a.5.5 0 0 1-1 0V7a.5.5 0 0 1 .5-.5zm12 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0V7a.5.5 0 0 1 .5-.5z"/>
-    </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" fill="currentColor" class="bi bi-soundwave" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8.5 2a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-1 0v-11a.5.5 0 0 1 .5-.5zm-2 2a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zm4 0a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zm-6 1.5A.5.5 0 0 1 5 6v4a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm8 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm-10 1A.5.5 0 0 1 3 7v2a.5.5 0 0 1-1 0V7a.5.5 0 0 1 .5-.5zm12 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0V7a.5.5 0 0 1 .5-.5z"/>
+        </svg>
+      </div>
+  
+      <div class="row">
+        <audio id="audioPlayer" class="d-none" controls>
+          <source src="tomp3.cc - Learn English Conversation Weather and Small Talk 30 SECONDS Subtitles_320kbps.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <button id="playButton" class="btn btn-primary">Play</button>
+        <!-- <button id="pauseButton">Pause</button> -->
+      </div>
+    </div>
   </div>
-
-  <div class="row">
-    <audio id="audioPlayer" class="d-none" controls>
-        <source src="tomp3.cc - Learn English Conversation Weather and Small Talk 30 SECONDS Subtitles_320kbps.mp3" type="audio/mpeg" >
-        Your browser does not support the audio element.
-      </audio>
-      <button id="playButton" class="btn btn-primary">Play</button>
-      <!-- <button id="pauseButton">Pause</button> -->
-    </div>
-    </div>
-
-
-
-    <script>
-        const audio = document.getElementById('audioPlayer');
-        const playButton = document.getElementById('playButton');
-        const pauseButton = document.getElementById('pauseButton');
-    
-        playButton.addEventListener('click', () => {
-          audio.play();
-          playButton.disabled = true;
-          playButton.style.opacity = '1';
-          playButton.style.background = "rgb(243, 16, 0)";
-          playButton.style.border = "0";
-        });
-    
-        // pauseButton.addEventListener('click', () => {
-        //   audio.pause();
-        //   playButton.disabled = false;
-        //   pauseButton.disabled = true;
-        // });
-    
-        // Disable the pause button initially
-        // pauseButton.disabled = true;
-
-        let audioElement = document.getElementById("audioPlayer");
-        let isAudioPlaying = false;
-
-        audioElement.addEventListener("play", function() {
-          isAudioPlaying = true;
-        });
-
-        audioElement.addEventListener("pause", function() {
-          isAudioPlaying = false;
-        });
-
-        window.addEventListener("beforeunload", function(event) {
-          if (isAudioPlaying) {
-            // Provide a custom confirmation message
-            event.returnValue = "Are you sure you want to leave the page? The audio is still playing.";
-          }
-        });
-      </script>
-
-
+  
+<script src="index.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     
 </body>
