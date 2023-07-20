@@ -17,7 +17,7 @@ const audio = document.getElementById('audioPlayer');
         const timeSpentInSeconds = endTime - startTime;
   
         // Add the time spent in the current session to the last session's time
-        lastSessionTimeSpent = timeSpentInSeconds;
+        lastSessionTimeSpent += timeSpentInSeconds;
   
         // Save the updated last session time spent in the localStorage
         localStorage.setItem('lastSessionTimeSpent', lastSessionTimeSpent);
@@ -56,5 +56,5 @@ const audio = document.getElementById('audioPlayer');
     // Log last session's time spent after page reload (DOMContentLoaded event)
     window.addEventListener('DOMContentLoaded', () => {
       console.log('Last session time spent after reload:', lastSessionTimeSpent.toFixed(2), 'seconds');
-      audio.currentTime = audio.currentTime + lastSessionTimeSpent;
+      audio.currentTime =lastSessionTimeSpent;
     });
